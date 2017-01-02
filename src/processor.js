@@ -1,6 +1,6 @@
-let File = require('./file');
-let fs = require('fs');
-let deepmerge = require('deepmerge');
+let fs = require('fs'),
+    deepmerge = require('deepmerge'),
+    File = require('./file');
 
 module.exports = class Processor {
     constructor(config, cwd) {
