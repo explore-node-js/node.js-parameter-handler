@@ -1,0 +1,15 @@
+{
+    "extra": {
+        "node_parameter_handler": [
+            {
+                "source": "tests/fixtures/settings.json.dist",
+                "output": "var/settings.json",
+                "envMap": {
+                    "touched": "BASE_URL",
+                    "test.touched": "PWD",
+                    "test.test.touched": "HOME"
+                }
+            }
+        ]
+    }
+}
