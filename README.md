@@ -3,7 +3,7 @@ parameter handler
 
 ## how to install
 ```
-npm install node.js-parameter-handler
+npm install node-parameter-handler
 ```
 
 
