@@ -1,17 +1,16 @@
-# node.js-parameter-handler
-parameter handler
+# node.js parameter handler
+node.js parameter handler [config builder]
 
 ## how to install
 ```
-npm install node.js-parameter-handler
+npm install node-parameter-handler
 ```
-
 
 ## how to execute tests
 ```
 npm test
 ```
-with coverage
+execute test and get coverage:
 ```
 npm test -- --coverage
 ```
