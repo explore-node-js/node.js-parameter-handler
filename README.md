@@ -1,13 +1,30 @@
 # node.js-parameter-handler
 parameter handler
 
+## how to install
+```
+npm install node.js-parameter-handler
+```
 
-# how to use
 
+## how to execute tests
+```
+npm test
+```
+with coverage
+```
+npm test -- --coverage
+```
+
+## how to use
+include configs into root package.json into 'extra' node
+
+obverve below sample of package.json
 
 ```
 # package.json
 {
+    ...
     "extra": {
         "node_parameter_handler": [
             {
