@@ -21,7 +21,6 @@ include configs into root package.json into 'extra' node
 obverve below sample of package.json
 
 ```
-# package.json
 {
     ...
     "extra": {
