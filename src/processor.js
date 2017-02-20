@@ -29,18 +29,18 @@ module.exports = class Processor {
      * @returns {*}
      */
     processFile(config) {
-        let file = new File();
+        const file = new File();
 
-        let pathSource = this.resolvePath(config.source),
-            pathOutput = this.resolvePath(config.output);
+        const pathSource = this.resolvePath(config.source);
+        const pathOutput = this.resolvePath(config.output);
 
-        let packageJsonPath = this.resolvePath(pathSource),
-            packageJsonContent = fs.readFileSync(packageJsonPath);
+        const packageJsonPath = this.resolvePath(pathSource);
+        const packageJsonContent = fs.readFileSync(packageJsonPath);
 
         /** @param {{extra: {}}} content */
-        let packageJson = JSON.parse(packageJsonContent),
-            solvedJson = this.resolveOverwritten(config.envMap),
-            completedJson = this.constructor.getMergedData(packageJson, solvedJson);
+        const packageJson = JSON.parse(packageJsonContent);
+        const solvedJson = this.resolveOverwritten(config.envMap);
+        const completedJson = this.constructor.getMergedData(packageJson, solvedJson);
 
         file.setSourcePath(pathSource)
             .setOutputPath(pathOutput)
@@ -61,11 +61,11 @@ module.exports = class Processor {
     }
 
     resolveOverwritten(envMapping) {
-        let object = {};
+        const object = {};
 
-        for (let abstractPath of Object.keys(envMapping)) {
-            let envVariable = envMapping[abstractPath],
-                value = this.constructor.getEnvironmentValue(envVariable);
+        for (const abstractPath of Object.keys(envMapping)) {
+            const envVariable = envMapping[abstractPath];
+            const value = this.constructor.getEnvironmentValue(envVariable);
 
             overwriteFieldValue(abstractPath, value, object);
         }
