@@ -24,6 +24,6 @@
         "jest": "^18.1.0"
     },
     "scripts": {
-        "test": "node node_modules/jest/bin/jest.js"
+        "test": "node node_modules/jest/bin/jest.js --verbose"
     }
 }
