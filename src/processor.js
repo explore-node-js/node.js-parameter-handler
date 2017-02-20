@@ -1,6 +1,7 @@
-let fs = require('fs'),
-    deepmerge = require('deepmerge'),
-    File = require('./file');
+const fs = require('fs');
+const deepmerge = require('deepmerge');
+const File = require('./file');
+const overwriteFieldValue = require('node-object-field-resolver');
 
 module.exports = class Processor {
     constructor(config, cwd) {
@@ -66,7 +67,7 @@ module.exports = class Processor {
             let envVariable = envMapping[abstractPath],
                 value = this.constructor.getEnvironmentValue(envVariable);
 
-            this.constructor.overwriteObjectFieldValue(abstractPath, value, object)
+            overwriteFieldValue(abstractPath, value, object);
         }
 
         return object;
@@ -78,31 +79,5 @@ module.exports = class Processor {
 
     static getMergedData(data, overwrittenData) {
         return deepmerge(data, overwrittenData);
-    }
-
-    static overwriteObjectFieldValue(abstractPath, value, object, delimiter) {
-        if (undefined === value) {
-            return;
-        }
-
-        delimiter = undefined !== delimiter ? delimiter : '.';
-
-        let indexes = abstractPath.split(delimiter),
-            lastPartIndex = indexes.length - 1;
-
-        for (let i = 0; i <= lastPartIndex; i++) {
-            let index = indexes[i];
-
-            if (i === lastPartIndex) {
-                object[index] = value;
-                break;
-            }
-
-            if (undefined === object[index]) {
-                object[index] = {};
-            }
-
-            object = object[index];
-        }
     }
 };
