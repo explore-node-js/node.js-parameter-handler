@@ -19,7 +19,7 @@ module.exports = class Processor {
     }
 
     write() {
-        this.files.forEach(file => fs.writeFile(file.output, JSON.stringify(file.content, null, 2), 'UTF-8'));
+        this.files.forEach(file => fs.writeFile(file.getOutputPath(), JSON.stringify(file.getContent(), null, 2), 'UTF-8'));
     }
 
     /**
@@ -41,9 +41,9 @@ module.exports = class Processor {
             solvedJson = this.resolveOverwritten(config.envMap),
             completedJson = this.constructor.getMergedData(packageJson, solvedJson);
 
-        file.source = pathSource;
-        file.output = pathOutput;
-        file.content = completedJson;
+        file.setSourcePath(pathSource)
+            .setOutputPath(pathOutput)
+            .setContent(completedJson);
 
         return file;
     }
