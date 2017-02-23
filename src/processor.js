@@ -63,12 +63,12 @@ module.exports = class Processor {
     resolveOverwritten(envMapping) {
         const object = {};
 
-        for (const abstractPath of Object.keys(envMapping)) {
+        Object.keys(envMapping).forEach(abstractPath => {
             const envVariable = envMapping[abstractPath];
             const value = this.constructor.getEnvironmentValue(envVariable);
 
             overwriteFieldValue(abstractPath, value, object);
-        }
+        });
 
         return object;
     }
