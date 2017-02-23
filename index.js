@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const chalk = require('chalk');
 const Processor = require('./src/processor');
 
 let packageJsonPath = `${process.cwd()}/package.json`,
@@ -24,7 +25,7 @@ try {
     processor.process();
     processor.write();
 } catch (e) {
-    console.log(`
+    console.log(chalk.red(`
         ${e}
         
         example of package.json:
@@ -43,5 +44,5 @@ try {
                 ]
             }            
         }
-    `)
+    `));
 }
