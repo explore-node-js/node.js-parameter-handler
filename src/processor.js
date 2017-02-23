@@ -24,9 +24,9 @@ module.exports = class Processor {
     }
 
     /**
-     * @param {{envMap: {}, output: string, source: string}} config
+     * @param {{envMap: {}, source: string, output: string}} config
      *
-     * @returns {*}
+     * @returns {File}
      */
     processFile(config) {
         const file = new File();
