@@ -1,6 +1,7 @@
 const fs = require('fs');
 const deepmerge = require('deepmerge');
 const File = require('./file');
+const chalk = require('chalk')
 const overwriteFieldValue = require('node-object-field-resolver');
 
 module.exports = class Processor {
@@ -11,22 +12,30 @@ module.exports = class Processor {
 
     process() {
         this.files = [];
+        console.log(chalk.yellow(`>>> PROCESSING FILES`));
 
         this.config.forEach(config => {
             let file = this.processFile(config);
 
             this.files.push(file);
+            console.log(chalk.yellow(`>>>>> ${file.getSourcePath()}`));
         })
     }
 
     write() {
-        this.files.forEach(file => fs.writeFile(file.getOutputPath(), JSON.stringify(file.getContent(), null, 2), 'UTF-8'));
+        console.log(chalk.green(`>>> WRITING FILES`));
+
+        this.files.forEach(file => {
+            console.log(chalk.green(`>>>>> ${file.getOutputPath()}`));
+
+            fs.writeFile(file.getOutputPath(), JSON.stringify(file.getContent(), null, 2), 'UTF-8')
+        });
     }
 
     /**
-     * @param {{envMap: {}, output: string, source: string}} config
+     * @param {{envMap: {}, source: string, output: string}} config
      *
-     * @returns {*}
+     * @returns {File}
      */
     processFile(config) {
         const file = new File();
@@ -63,12 +72,12 @@ module.exports = class Processor {
     resolveOverwritten(envMapping) {
         const object = {};
 
-        for (const abstractPath of Object.keys(envMapping)) {
+        Object.keys(envMapping).forEach(abstractPath => {
             const envVariable = envMapping[abstractPath];
             const value = this.constructor.getEnvironmentValue(envVariable);
 
             overwriteFieldValue(abstractPath, value, object);
-        }
+        });
 
         return object;
     }
