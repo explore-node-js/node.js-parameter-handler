@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const chalk = require('chalk');
 const Processor = require('./src/processor');
 
 let packageJsonPath = `${process.cwd()}/package.json`,
@@ -9,14 +10,14 @@ let packageJsonPath = `${process.cwd()}/package.json`,
     packageJson = JSON.parse(packageJsonContent);
 
 try {
-    if(undefined === packageJson.extra) {
+    if (undefined === packageJson.extra) {
         throw `node 'extra' is not defined`;
     }
-    if(undefined === packageJson.extra.node_parameter_handler) {
-        throw `node 'node_parameter_handler' in 'extra' is not defined`
+    if (undefined === packageJson.extra.node_parameter_handler) {
+        throw `node 'node_parameter_handler' in 'extra' is not defined`;
     }
-    if(!Array.isArray(packageJson.extra.node_parameter_handler)) {
-        throw `node 'node_parameter_handler' in 'extra' is not array`
+    if (!Array.isArray(packageJson.extra.node_parameter_handler)) {
+        throw `node 'node_parameter_handler' in 'extra' is not array`;
     }
 
     const processor = new Processor(packageJson.extra.node_parameter_handler, process.cwd());
@@ -24,7 +25,7 @@ try {
     processor.process();
     processor.write();
 } catch (e) {
-    console.log(`
+    console.log(chalk.red(`
         ${e}
         
         example of package.json:
@@ -43,5 +44,5 @@ try {
                 ]
             }            
         }
-    `)
+    `));
 }
