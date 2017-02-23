@@ -1,6 +1,7 @@
 const fs = require('fs');
 const deepmerge = require('deepmerge');
 const File = require('./file');
+const chalk = require('chalk')
 const overwriteFieldValue = require('node-object-field-resolver');
 
 module.exports = class Processor {
@@ -11,16 +12,24 @@ module.exports = class Processor {
 
     process() {
         this.files = [];
+        console.log(chalk.yellow(`>>> PROCESSING FILES`));
 
         this.config.forEach(config => {
             let file = this.processFile(config);
 
             this.files.push(file);
+            console.log(chalk.yellow(`>>>>> ${file.getSourcePath()}`));
         })
     }
 
     write() {
-        this.files.forEach(file => fs.writeFile(file.getOutputPath(), JSON.stringify(file.getContent(), null, 2), 'UTF-8'));
+        console.log(chalk.green(`>>> WRITING FILES`));
+
+        this.files.forEach(file => {
+            console.log(chalk.green(`>>>>> ${file.getOutputPath()}`));
+
+            fs.writeFile(file.getOutputPath(), JSON.stringify(file.getContent(), null, 2), 'UTF-8')
+        });
     }
 
     /**
