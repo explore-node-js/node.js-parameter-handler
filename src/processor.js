@@ -1,7 +1,7 @@
 const fs = require('fs');
 const deepmerge = require('deepmerge');
 const File = require('./file');
-const chalk = require('chalk')
+const chalk = require('chalk');
 const overwriteFieldValue = require('node-object-field-resolver');
 
 module.exports = class Processor {
