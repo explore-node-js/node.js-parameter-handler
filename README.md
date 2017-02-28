@@ -1,3 +1,15 @@
+[circle.ci-master-badge]: https://circleci.com/gh/explore-node-js/node.js-parameter-handler/tree/master.svg?style=svg
+[circle.ci-master-link]: https://circleci.com/gh/explore-node-js/node.js-parameter-handle/tree/master
+[codecov.io-master-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-api/branch/master/graph/badge.svg
+[codecov.io-master-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-api/branch/master
+
+|                         | master                            
+|---                      |---
+| __tests__               |
+| _< Circle CI >_ build   | [![build][circle.ci-master-badge]][circle.ci-master-link]
+| __Coverage__            |
+| codecov.io              | [![coverage][codecov.io-master-badge]][codecov.io-master-link]
+
 # node.js parameter handler
 node.js parameter handler [config builder]
 
