@@ -1,5 +1,5 @@
 [circle.ci-master-badge]: https://circleci.com/gh/explore-node-js/node.js-parameter-handler/tree/master.svg?style=svg
-[circle.ci-master-link]: https://circleci.com/gh/explore-node-js/node.js-parameter-handle/tree/master
+[circle.ci-master-link]: https://circleci.com/gh/explore-node-js/node.js-parameter-handler/tree/master
 [codecov.io-master-badge]: https://codecov.io/gh/eugene-matvejev/battleship-game-api/branch/master/graph/badge.svg
 [codecov.io-master-link]: https://codecov.io/gh/eugene-matvejev/battleship-game-api/branch/master
 
