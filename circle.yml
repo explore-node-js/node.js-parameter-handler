@@ -11,3 +11,4 @@ test:
         - npm install -g codecov
     override:
         - npm test -- --coverage
+        - codecov
