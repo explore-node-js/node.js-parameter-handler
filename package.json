@@ -1,6 +1,6 @@
 {
     "name": "node-parameter-handler",
-    "version": "0.1.8",
+    "version": "1.0.0",
     "description": "build JSON files which can be used as settings",
     "main": "index.js",
     "repository": {
@@ -8,23 +8,25 @@
         "url": "git+https://github.com/explore-node-js/node.js-parameter-handler.git"
     },
     "keywords": [
-        "config builder, config handler, parameter handler"
+        "config builder",
+        "config handler",
+        "parameter handler"
     ],
     "author": "Eugene Matvejev <eugene.matvejev@gmail.com>",
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/explore-node-js/node.js-parameter-handler/issues"
-    },
-    "homepage": "https://github.com/explore-node-js/node.js-parameter-handler#readme",
     "dependencies": {
         "deepmerge": "^1.3.1",
-        "node-object-field-resolver": "^0.1",
-        "jsonfile": "^2.4.0"
+        "jsonfile": "^2.4.0",
+        "node-object-field-resolver": "^1.0"
     },
     "devDependencies": {
         "jest": "^18.1.0"
     },
     "scripts": {
         "test": "node node_modules/jest/bin/jest.js --verbose"
-    }
+    },
+    "bugs": {
+        "url": "https://github.com/explore-node-js/node.js-parameter-handler/issues"
+    },
+    "homepage": "https://github.com/explore-node-js/node.js-parameter-handler#readme"
 }

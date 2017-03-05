@@ -11,29 +11,24 @@
 | _< codecov.io >_ | [![coverage][codecov.io-master-badge]][codecov.io-master-link]
 
 # node.js parameter handler
-node.js parameter handler [config builder]
+can be used as config builder, inspired by [@Incenteev/ParameterHandler](https://github.com/Incenteev/ParameterHandler)
 
 ## how to install
-```
-$ npm install node-parameter-handler
-```
+`$ npm install node-parameter-handler`
+
 ## how to execute
-```
-$ node node_modules/node-parameter-handler
-```
+`$ node node_modules/node-parameter-handler`
+
+## used technologies
+ * jest _[for tests only]_
+ 
 ## how to execute tests
-```
-$ npm test
-```
-execute test and get coverage:
-```
-$ npm test -- --coverage
-```
+ `npm test` or, to execute tests with coverage `npm test -- --coverage`
 
 ## how to use
-include configs into root package.json into 'extra' node
+include configs into root _package.json_ into 'extra' node
 
-obverve below sample of package.json
+obverve below sample of _package.json_
 
 ```
 {
