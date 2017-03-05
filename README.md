@@ -11,6 +11,7 @@
 | _< codecov.io >_ | [![coverage][codecov.io-master-badge]][codecov.io-master-link]
 
 # node.js parameter handler
+can be used as config builder, inspired by [@Incenteev/ParameterHandler](https://github.com/Incenteev/ParameterHandler)
 
 ## how to install
 `$ npm install node-parameter-handler` or `$ npm install node-parameter-handler --save` to save it in _package.json_
