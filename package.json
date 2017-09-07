@@ -7,6 +7,9 @@
         "type": "git",
         "url": "git+https://github.com/explore-node-js/node.js-parameter-handler.git"
     },
+    "bin": {
+        "node-js-parameter-handler": "./index.js"
+    },
     "keywords": [
         "config builder",
         "config handler",
