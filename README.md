@@ -14,7 +14,7 @@
 can be used as config builder, inspired by [@Incenteev/ParameterHandler](https://github.com/Incenteev/ParameterHandler)
 
 ## how to install
-`$ npm install node-parameter-handler`
+`$ npm install node-parameter-handler` or `$ yarn add node-parameter-handler`
 
 ## how to execute
 `$ node node_modules/node-parameter-handler`
