@@ -1,6 +1,6 @@
 {
     "name": "node-parameter-handler",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "build JSON files which can be used as settings",
     "main": "index.js",
     "repository": {
