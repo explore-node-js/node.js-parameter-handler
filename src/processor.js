@@ -76,7 +76,7 @@ module.exports = class Processor {
             const envVariable = envMapping[abstractPath];
             const value = this.constructor.getEnvironmentValue(envVariable);
 
-            overwriteFieldValue(abstractPath, value, object);
+            undefined !== value && overwriteFieldValue(abstractPath, value, object);
         });
 
         return object;
