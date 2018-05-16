@@ -1,36 +1,28 @@
 exports[`processor ::process match snapshot 1`] = `
 Array [
-  File {
-    "content": Object {
+  Object {
+    "test": Object {
       "test": Object {
-        "test": Object {
-          "touched": undefined,
-          "untouched": "untouched",
-        },
-        "touched": "test",
+        "touched": undefined,
         "untouched": "untouched",
       },
       "touched": "test",
       "untouched": "untouched",
     },
-    "outputPath": "/home/eugene-matvejev/prototype/node.js-parameter-handler/var/settings1.json",
-    "sourcePath": "/home/eugene-matvejev/prototype/node.js-parameter-handler/tests/fixtures/settings.json.dist",
+    "touched": "test",
+    "untouched": "untouched",
   },
-  File {
-    "content": Object {
+  Object {
+    "test": Object {
       "test": Object {
-        "test": Object {
-          "touched": "to be replaced",
-          "untouched": "untouched",
-        },
         "touched": "to be replaced",
         "untouched": "untouched",
       },
-      "touched": "test",
+      "touched": "to be replaced",
       "untouched": "untouched",
     },
-    "outputPath": "/home/eugene-matvejev/prototype/node.js-parameter-handler/var/settings2.json",
-    "sourcePath": "/home/eugene-matvejev/prototype/node.js-parameter-handler/tests/fixtures/settings.json.dist",
+    "touched": "test",
+    "untouched": "untouched",
   },
 ]
 `;

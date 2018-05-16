@@ -31,7 +31,9 @@ describe('processor', () => {
 
         it(`match snapshot`, () => {
             processor.process();
-            expect(processor.files).toMatchSnapshot();
+            const content = processor.files.map((el) => el.content);
+
+            expect(content).toMatchSnapshot();
         });
     });
 });
