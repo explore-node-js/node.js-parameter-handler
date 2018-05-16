@@ -1,0 +1,28 @@
+exports[`processor ::process match snapshot 1`] = `
+Array [
+  Object {
+    "test": Object {
+      "test": Object {
+        "touched": undefined,
+        "untouched": "untouched",
+      },
+      "touched": "test",
+      "untouched": "untouched",
+    },
+    "touched": "test",
+    "untouched": "untouched",
+  },
+  Object {
+    "test": Object {
+      "test": Object {
+        "touched": "to be replaced",
+        "untouched": "untouched",
+      },
+      "touched": "to be replaced",
+      "untouched": "untouched",
+    },
+    "touched": "test",
+    "untouched": "untouched",
+  },
+]
+`;

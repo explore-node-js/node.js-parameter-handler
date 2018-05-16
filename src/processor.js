@@ -14,7 +14,7 @@ module.exports = class Processor {
         this.files = [];
         console.log(chalk.yellow(`>>> PROCESSING FILES`));
 
-        this.config.forEach(config => {
+        this.config.forEach((config) => {
             let file = this.processFile(config);
 
             this.files.push(file);
@@ -28,7 +28,7 @@ module.exports = class Processor {
         this.files.forEach(file => {
             console.log(chalk.green(`>>>>> ${file.getOutputPath()}`));
 
-            fs.writeFile(file.getOutputPath(), JSON.stringify(file.getContent(), null, 2), 'UTF-8')
+            fs.writeFile(file.getOutputPath(), JSON.stringify(file.getContent(), null, 2), 'UTF-8');
         });
     }
 
@@ -37,19 +37,19 @@ module.exports = class Processor {
      *
      * @returns {File}
      */
-    processFile(config) {
+    processFile({source, output, envMap, skipUndefined}) {
         const file = new File();
 
-        const pathSource = this.resolvePath(config.source);
-        const pathOutput = this.resolvePath(config.output);
+        const pathSource = this.resolvePath(source);
+        const pathOutput = this.resolvePath(output);
 
         const packageJsonPath = this.resolvePath(pathSource);
         const packageJsonContent = fs.readFileSync(packageJsonPath);
 
         /** @param {{extra: {}}} content */
         const packageJson = JSON.parse(packageJsonContent);
-        const solvedJson = this.resolveOverwritten(config.envMap);
-        const completedJson = this.constructor.getMergedData(packageJson, solvedJson);
+        const solvedJson = Processor.resolveOverwritten(envMap, skipUndefined);
+        const completedJson = deepmerge(packageJson, solvedJson);
 
         file.setSourcePath(pathSource)
             .setOutputPath(pathOutput)
@@ -69,24 +69,20 @@ module.exports = class Processor {
         return `${this.cwd}/${path}`;
     }
 
-    resolveOverwritten(envMapping) {
-        const object = {};
+    static resolveOverwritten(envMap, skipUndefined) {
+        const obj = {};
 
-        Object.keys(envMapping).forEach(abstractPath => {
-            const envVariable = envMapping[abstractPath];
-            const value = this.constructor.getEnvironmentValue(envVariable);
+        Object.keys(envMap).forEach((abstractPath) => {
+            const envVariable = envMap[abstractPath];
+            const value = Processor.getEnvironmentValue(envVariable);
 
-            undefined !== value && overwriteFieldValue(abstractPath, value, object);
+            (undefined !== value || !skipUndefined) && overwriteFieldValue(abstractPath, value, obj);
         });
 
-        return object;
+        return obj;
     }
 
-    static getEnvironmentValue(index) {
-        return process.env[index] || undefined;
-    }
-
-    static getMergedData(data, overwrittenData) {
-        return deepmerge(data, overwrittenData);
+    static getEnvironmentValue(i) {
+        return process.env[i] || undefined;
     }
 };
