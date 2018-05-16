@@ -3,11 +3,21 @@
         "node_parameter_handler": [
             {
                 "source": "tests/fixtures/settings.json.dist",
-                "output": "var/settings.json",
+                "output": "var/settings1.json",
                 "envMap": {
-                    "touched": "BASE_URL",
-                    "test.touched": "PWD",
-                    "test.test.touched": "HOME"
+                    "touched": "NODE_ENV",
+                    "test.touched": "NODE_ENV",
+                    "test.test.touched": "NODE_ENV_NOT_EXISTS"
+                }
+            },
+            {
+                "source": "tests/fixtures/settings.json.dist",
+                "output": "var/settings2.json",
+                "skipUndefined": true,
+                "envMap": {
+                    "touched": "NODE_ENV",
+                    "test.touched": "NODE_ENV_NOT_EXISTS",
+                    "test.test.touched": "NODE_ENV_NOT_EXISTS"
                 }
             }
         ]
