@@ -3,7 +3,7 @@
 [codecov.io-master-badge]: https://codecov.io/gh/explore-node-js/node.js-parameter-handler/branch/master/graph/badge.svg
 [codecov.io-master-link]: https://codecov.io/gh/explore-node-js/node.js-parameter-handler
 
-|                  | master                            
+|                  | master
 |---               |---
 | __tests__        |
 | _< Circle CI >_  | [![build][circle.ci-master-badge]][circle.ci-master-link]
@@ -21,7 +21,7 @@ can be used as config builder, inspired by [@Incenteev/ParameterHandler](https:/
 
 ## used technologies
  * jest _[for tests only]_
- 
+
 ## how to execute tests
  `npm test` or, to execute tests with coverage `npm test -- --coverage`
 
@@ -36,8 +36,18 @@ obverve below sample of _package.json_
     "extra": {
         "node_parameter_handler": [
             {
-                "source": "tests/fixtures/settings.json.dist", # source 
-                "output": "var/settings.json",                 # output
+                "source": "tests/fixtures/settings.json.dist", # source
+                "output": "var/settings1.json",                # output
+                "envMap": {
+                    "touched": "BASE_URL", # json path to ENV VARIABLE
+                    "test.touched": "PWD",
+                    "test.test.touched": "HOME"
+                }
+            },
+            {
+                "source": "tests/fixtures/settings.json.dist", # source
+                "output": "var/settings2.json",                # output
+                "skipUndefined": true,                         # if variable is not defined do not change
                 "envMap": {
                     "touched": "BASE_URL", # json path to ENV VARIABLE
                     "test.touched": "PWD",
