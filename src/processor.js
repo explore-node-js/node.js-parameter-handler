@@ -28,7 +28,12 @@ module.exports = class Processor {
         this.files.forEach(file => {
             console.log(chalk.green(`>>>>> ${file.getOutputPath()}`));
 
-            fs.writeFile(file.getOutputPath(), JSON.stringify(file.getContent(), null, 2), 'UTF-8');
+            fs.writeFile(
+                file.getOutputPath(),
+                JSON.stringify(file.getContent(), null, 2),
+                { encoding: 'UTF-8'},
+                (e) => { console.log(chalk.red(` >>>>> error ${e}`)); }
+            );
         });
     }
 
