@@ -8,7 +8,7 @@ jobs:
       - run: npm i --verbose
       - run: sudo npm i -g codecov
       - run: npm test -- --coverage
-      - run: covdecov
+      - run: codecov
       - store_artifacts:
           path: coverage
           prefix: coverage
