@@ -32,7 +32,7 @@ module.exports = class Processor {
                 file.getOutputPath(),
                 JSON.stringify(file.getContent(), null, 2),
                 { encoding: 'UTF-8'},
-                (e) => { console.log(chalk.red(` >>>>> error ${e}`)); }
+                (e) => { e && console.log(chalk.red(` >>>>> error ${e}`)); }
             );
         });
     }
