@@ -27,7 +27,6 @@ workflows:
       - publish:
           requires:
             - test
-          branches:
-            only:
-              - master
-
+#           branches:
+#             only:
+#               - master
