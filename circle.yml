@@ -23,9 +23,7 @@ workflows:
   version: 2
   test-only:
     jobs:
-      - test:
-          branches:
-            ignore: /master/
+      - test
   test-and-publish:
     jobs:
       - test
