@@ -31,21 +31,21 @@ jobs:
       - store_artifacts:
           path: coverage
           prefix: coverage
-  publish:
-    docker:
-      - image: circleci/node:10.4.0
-    steps:
-      - checkout
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - run: npm publish  
+#   publish:
+#     docker:
+#       - image: circleci/node:10.4.0
+#     steps:
+#       - checkout
+#       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+#       - run: npm publish  
 workflows:
   version: 2
-  test_and_publish:
+  test:
     jobs:
       - test
-      - publish
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
+#       - publish
+#           requires:
+#             - test
+#           filters:
+#             branches:
+#               only: master
