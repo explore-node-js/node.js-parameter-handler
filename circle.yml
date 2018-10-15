@@ -17,12 +17,12 @@ jobs:
       - image: circleci/node:10.4.0
     steps:
       - checkout
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+#       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 #       - run: npm publish
-#       - run:     command: |
-#       if [ "${CIRCLE_BRANCH}" == "master" ]; then
-#         ansible-playbook site.yml
-#       fi  
+      - run: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+             echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          fi  
 workflows:
   version: 2
   test-and-deploy:
