@@ -23,10 +23,10 @@ workflows:
   version: 2
   test-and-publish:
     jobs:
-      - test
+      - test:
       - publish:
           requires:
             - test
-#           branches:
-#             only:
-#               - master
+          branches:
+            only:
+              - master
