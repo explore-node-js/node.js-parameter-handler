@@ -24,7 +24,9 @@ workflows:
   test-and-publish:
     jobs:
       - test
-      - publish
+      - publish:
+          requires:
+            - test
           branches:
             only:
               - master
