@@ -1,22 +1,38 @@
-machine:
-    node:
-        version: 8.11
+# dependencies:
+#     pre:
+#         - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+#     cache_directories:
+#         - ~/.npm/
 
-dependencies:
-    pre:
-        - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-    cache_directories:
-        - ~/.npm/
+# test:
+#     pre:
+#         - npm install -g codecov
+#     override:
+#         - npm test -- --coverage
+#         - codecov
 
-test:
-    pre:
-        - npm install -g codecov
-    override:
-        - npm test -- --coverage
-        - codecov
+# deployment:
+#     production:
+#         branch: master
+#         commands:
+#             - npm publish
 
-deployment:
-    production:
-        branch: master
-        commands:
-            - npm publish
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:10.4.0
+    steps:
+      - checkout
+      - run: npm i --verbose
+      - run: sudo npm i -g codecov
+      - run: npm test -- --coverage
+      - run: codecov
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+workflows:
+  version: 2
+  test-only:
+    jobs:
+      - test
