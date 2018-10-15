@@ -12,22 +12,23 @@ jobs:
       - store_artifacts:
           path: coverage
           prefix: coverage
-  publish:
+  deploy:
     docker:
       - image: circleci/node:10.4.0
     steps:
       - checkout
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-#       - run: npm publish  
+#       - run: npm publish
+#       - run:     command: |
+#       if [ "${CIRCLE_BRANCH}" == "master" ]; then
+#         ansible-playbook site.yml
+#       fi  
 workflows:
   version: 2
-  test-only:
+  test-and-deploy:
     jobs:
       - test
-  test-and-publish:
-    jobs:
-      - test
-      - publish:
+      - deploy:
           requires:
             - test
           branches:
