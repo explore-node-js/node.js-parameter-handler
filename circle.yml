@@ -21,9 +21,15 @@ jobs:
 #       - run: npm publish  
 workflows:
   version: 2
-  test-and-publish:
+  test-only:
     jobs:
       - test:
+          branches:
+            ignore:
+              - master
+  test-and-publish:
+    jobs:
+      - test
       - publish:
           requires:
             - test
