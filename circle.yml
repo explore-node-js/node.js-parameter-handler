@@ -21,7 +21,7 @@ jobs:
       - run: npm publish  
 workflows:
   version: 2
-  test-only:
+  test-and-publish:
     jobs:
       - test
       - publish
