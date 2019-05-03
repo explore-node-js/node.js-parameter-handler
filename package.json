@@ -1,6 +1,6 @@
 {
     "name": "node-parameter-handler",
-    "version": "1.0.4",
+    "version": "2.0.0",
     "description": "build JSON files which can be used as settings",
     "main": "index.js",
     "repository": {
@@ -8,7 +8,7 @@
         "url": "git+https://github.com/explore-node-js/node.js-parameter-handler.git"
     },
     "bin": {
-        "node-js-parameter-handler": "./index.js"
+        "generate-parameters": "./index.js"
     },
     "keywords": [
         "config builder",
