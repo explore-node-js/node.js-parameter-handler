@@ -1,34 +1,51 @@
-[circle.ci-master-badge]: https://circleci.com/gh/explore-node-js/node.js-parameter-handler/tree/master.svg?style=svg
-[circle.ci-master-link]: https://circleci.com/gh/explore-node-js/node.js-parameter-handler/tree/master
-[codecov.io-master-badge]: https://codecov.io/gh/explore-node-js/node.js-parameter-handler/branch/master/graph/badge.svg
-[codecov.io-master-link]: https://codecov.io/gh/explore-node-js/node.js-parameter-handler
-
-|                  | master
-|---               |---
-| __tests__        |
-| _< Circle CI >_  | [![build][circle.ci-master-badge]][circle.ci-master-link]
-| __coverage__     |
-| _< codecov.io >_ | [![coverage][codecov.io-master-badge]][codecov.io-master-link]
+[ci.tests-master-badge]: https://circleci.com/gh/explore-node-js/node.js-parameter-handler/tree/master.svg?style=svg
+[ci.tests-master]: https://circleci.com/gh/explore-node-js/node.js-parameter-handler/tree/master
+[ci.coverage-master-badge]: https://codecov.io/gh/explore-node-js/node.js-parameter-handler/branch/master/graph/badge.svg
+[ci.coverage-master]: https://codecov.io/gh/explore-node-js/node.js-parameter-handler
+[npm.package-badge]: https://badge.fury.io/js/node-parameter-handler.svg
+[npm.package]: https://www.npmjs.com/package/node-parameter-handler
 
 # node.js parameter handler
+
 can be used as config builder, inspired by [@Incenteev/ParameterHandler](https://github.com/Incenteev/ParameterHandler)
 
-## how to install
-`$ npm install node-parameter-handler` or `$ yarn add node-parameter-handler`
+[![build][ci.tests-master-badge]][ci.tests-master]
+[![coverage][ci.coverage-master-badge]][ci.coverage-master]
+[![coverage][npm.package-badge]][npm.package]
 
-## how to execute
-`$ node node_modules/node-parameter-handler`
+### how to install
 
-## used technologies
- * jest _[for tests only]_
+`$ npm i node-parameter-handler` or `$ yarn add node-parameter-handler`
 
-## how to execute tests
- `npm test` or, to execute tests with coverage `npm test -- --coverage`
+### software requirements
 
-## how to use
+* [node.js](https://nodejs.org/)
+* [npm](https://www.npmjs.com/)+ or [yarn](https://yarnpkg.com/)
+
+### used technologies
+
+* [jest](https://facebook.github.io/jest/) - only for tests
+
+### used services
+
+* [circle ci](https://circleci.com/dashboard)
+* [codecov](https://codecov.io/)
+* [code climate](https://codeclimate.com/)
+* [snyk](https://snyk.io/)
+
+### how to execute
+* `$ node_modules/.bin/node-parameter-handler`
+
+### how to execute tests
+
+* `$ npm test`
+* to execute tests with coverage `npm test -- --coverage`
+
+### how to use
+
 include configs into root _package.json_ into 'extra' node
 
-obverve below sample of _package.json_
+observe an example of _package.json_
 
 ```
 {
