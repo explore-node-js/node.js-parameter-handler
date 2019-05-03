@@ -8,6 +8,7 @@
 # node.js parameter handler
 
 can be used as config builder, inspired by [@Incenteev/ParameterHandler](https://github.com/Incenteev/ParameterHandler)
+useful for 'legacy' applications, if you're using [react-scripts@3](https://www.npmjs.com/package/react-scripts), consider use .env file instead, as in [this example repository](https://github.com/eugene-matvejev/battleship-game-gui-react-js)
 
 [![build][ci.tests-master-badge]][ci.tests-master]
 [![coverage][ci.coverage-master-badge]][ci.coverage-master]
